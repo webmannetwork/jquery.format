@@ -330,10 +330,14 @@
 			var node = $(this);
 //			console.log($.type(node));
 //			console.log(node);
-			var text = node.val();
+			var text = node.val() || node.text();
 //			console.log("text ==>\n" + text);
 			text = fmt.format(text);
-			node.val(text);
+			if(node.val())
+				node.val(text);
+				
+			else
+				node.text(text);
 		});
 	};
 
